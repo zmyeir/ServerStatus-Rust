@@ -25,6 +25,7 @@ pub struct Host {
     #[serde(default = "Default::default")]
     pub alias: String,
     pub location: String,
+    pub region: String,
     #[serde(rename = "type")]
     pub host_type: String,
     #[serde(default = "u32::default")]
@@ -60,10 +61,6 @@ pub struct Config {
 
     #[serde(default = "Default::default")]
     pub tgbot: notifier::tgbot::Config,
-    #[serde(default = "Default::default")]
-    pub wechat: notifier::wechat::Config,
-    #[serde(default = "Default::default")]
-    pub email: notifier::email::Config,
     pub hosts: Vec<Host>,
 
     #[serde(skip_deserializing)]

@@ -5,9 +5,7 @@ use tokio::runtime::Handle;
 
 use crate::payload::HostStat;
 
-pub mod email;
 pub mod tgbot;
-pub mod wechat;
 
 pub static NOTIFIER_HANDLE: Lazy<Mutex<Option<Handle>>> = Lazy::new(Default::default);
 

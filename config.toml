@@ -14,9 +14,9 @@ admin_pass = ""
 # monthstart = 1 没启用vnstat时，表示月流量从每月哪天开始统计
 # disabled = true 单机禁用，跟删除这条配置的效果一样
 hosts = [
-  {name = "h1", password = "p1", alias = "n1", location = "🏠", type = "kvm", notify = true},
-  {name = "h2", password = "p2", alias = "n2", location = "🏢", type = "kvm", disabled = false},
-  {name = "h3", password = "p3", alias = "n3", location = "🏝️", type = "kvm", monthstart = 1},
+  {name = "h1", password = "p1", alias = "n1", location = "Shanghai,CN", region = "CN", type = "kvm", notify = true},
+  {name = "h2", password = "p2", alias = "n2", location = "Tokyo,JP", region = "JP", type = "kvm", disabled = false},
+  {name = "h3", password = "p3", alias = "n3", location = "SanJose,US", region = "US", type = "kvm", monthstart = 1},
 ]
 
 
@@ -42,43 +42,5 @@ custom_tpl = """
 
 {% if host.hdd_used / host.hdd_total  > 0.5  %}
 <pre>😲 {{host.name}} 主机硬盘使用率超50%, 当前{{ (100 * host.hdd_used / host.hdd_total) | round }}% </pre>
-{% endif %}
-"""
-
-[wechat]
-enabled = false
-corp_id = "<corp id>"
-corp_secret = "<corp secret>"
-agent_id = "<agent id>"
-title = "❗Server Status"
-online_tpl  = "{{config.title}} \n😆 {{host.location}} 的 {{host.name}} 主机恢复上线啦"
-offline_tpl = "{{config.title}} \n😱 {{host.location}} 的 {{host.name}} 主机已经掉线啦"
-custom_tpl = """
-{% if host.memory_used / host.memory_total > 0.8  %}
-😲 {{host.name}} 主机内存使用率超80%
-{% endif %}
-
-{% if host.hdd_used / host.hdd_total > 0.8  %}
-😲 {{host.name}} 主机硬盘使用率超80%
-{% endif %}
-"""
-
-[email]
-enabled = false
-server = "smtp.gmail.com"
-username = "user@email.com"
-password = "***"
-to = "user1@email.com;user2@email.com"
-subject = "ServerStatus Notification"
-title = "❗<b>Server Status</b><br/>"
-online_tpl  = "{{config.title}} 😆 {{host.location}} 的 {{host.name}} 主机恢复上线啦"
-offline_tpl = "{{config.title}} 😱 {{host.location}} 的 {{host.name}} 主机已经掉线啦"
-custom_tpl = """
-{% if host.memory_used / host.memory_total > 0.8  %}
-<pre>😲 {{host.name}} 主机内存使用率超80%, 当前{{ (100 * host.memory_used / host.memory_total) | round }}%  </pre>
-{% endif %}
-
-{% if host.hdd_used / host.hdd_total > 0.8  %}
-<pre>😲 {{host.name}} 主机硬盘使用率超80%, 当前{{ (100 * host.hdd_used / host.hdd_total) | round }}% </pre>
 {% endif %}
 """
