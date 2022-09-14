@@ -8,7 +8,7 @@
         if (stats.servers[i].online4 || stats.servers[i].online6) {
             getDetails(`#table-item-${i}`, stats.servers[i])
             document.querySelector(`#table-item-${i}`).innerHTML = `<div class="node">
-    <img class="flag" src="https://z-fs.cols.ro/flags/square/${stats.servers[i].region.toLowerCase()}.svg" alt>
+    <img class="flag" src="https://npm.elemecdn.com/z-flags/square/${stats.servers[i].region.toLowerCase()}.svg" alt>
     <div>
         <div class="name">${stats.servers[i].alias}</div>
         <div class="location">${stats.servers[i].location}</div>
@@ -46,7 +46,7 @@
             document.querySelector(`#table-item-${i}`).style.borderColor = Math.round(stats.servers[i].cpu) <= 70 ? "" : "#faae42"
         } else {
             document.querySelector(`#table-item-${i}`).innerHTML = `<div class="node">
-    <img class="flag" src="https://z-fs.cols.ro/flags/square/${stats.servers[i].region.toLowerCase()}.svg" alt>
+    <img class="flag" src="https://npm.elemecdn.com/z-flags/square/${stats.servers[i].region.toLowerCase()}.svg" alt>
     <div>
         <div class="name">${stats.servers[i].alias}</div>
         <div class="location">${stats.servers[i].location}</div>
@@ -94,7 +94,7 @@ setInterval(() => {
                 if (stats.servers[i].online4 || stats.servers[i].online6) {
                     getDetails(`#table-item-${i}`, stats.servers[i])
                     document.querySelector(`#table-item-${i}`).style.borderColor = Math.round(stats.servers[i].cpu) <= 70 ? "" : "#faae42"
-                    document.querySelector(`#table-item-${i} .flag`).src = `https://z-fs.cols.ro/flags/square/${stats.servers[i].region.toLowerCase()}.svg`
+                    document.querySelector(`#table-item-${i} .flag`).src = `https://npm.elemecdn.com/z-flags/square/${stats.servers[i].region.toLowerCase()}.svg`
                     document.querySelector(`#table-item-${i} .location`).textContent = stats.servers[i].location
                     document.querySelector(`#table-item-${i} .type`).textContent = stats.servers[i].type
                     document.querySelector(`#table-item-${i} .uptime`).textContent = stats.servers[i].uptime == "1 天" ? "1 Day" : stats.servers[i].uptime.replace(/天/, "Days")
@@ -114,7 +114,7 @@ setInterval(() => {
                 } else {
                     document.querySelector(`#table-item-${i}`).onclick = null
                     document.querySelector(`#table-item-${i}`).style.borderColor = "#e62965"
-                    document.querySelector(`#table-item-${i} .flag`).src = `https://z-fs.cols.ro/flags/square/${stats.servers[i].region.toLowerCase()}.svg`
+                    document.querySelector(`#table-item-${i} .flag`).src = `https://npm.elemecdn.com/z-flags/square/${stats.servers[i].region.toLowerCase()}.svg`
                     document.querySelector(`#table-item-${i} .location`).textContent = stats.servers[i].location
                     document.querySelector(`#table-item-${i} .type`).textContent = stats.servers[i].type
                     document.querySelector(`#table-item-${i} .uptime`).textContent = "Offline"
@@ -158,7 +158,7 @@ let getDetails = (item, data) => {
     document.querySelector(item).onclick = () => {
         Swal.fire({
             html: `<div style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
-                <img style="margin-right: 10px; height: 50px;" src="https://z-fs.cols.ro/flags/rounded-rectangle/${data.region.toLowerCase()}.svg" alt>
+                <img style="margin-right: 10px; height: 50px;" src="https://npm.elemecdn.com/z-flags/rounded-rectangle/${data.region.toLowerCase()}.svg" alt>
                 <h2>${data.name}</h2>
             </div>
             <div style="margin: 0 auto 10px; width: 350px; text-align: left; display: flex;"><p style="width: 35%;">Type:</p><p style="width: 65%;">${data.type}</p></div>
